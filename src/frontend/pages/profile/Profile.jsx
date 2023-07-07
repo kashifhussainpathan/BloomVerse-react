@@ -3,7 +3,7 @@ import "./profileStyles.css";
 import { useContext } from "react";
 
 import { UserContext } from "src/frontend/context/user-context";
-import { UserPosts } from "src/frontend/components/userPosts";
+import { UserPosts } from "../../components/UserPosts";
 import { PostContext } from "src/frontend/context/post-context";
 import { EditPost } from "../home/components/editPost/EditPost";
 import { AuthContext } from "src/frontend/context/auth-context";
