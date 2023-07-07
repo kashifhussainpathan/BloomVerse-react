@@ -1,0 +1,58 @@
+.explore-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 1rem;
+}
+
+.explore-page-search {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .explore-page-search input {
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.5rem;
+    outline: none;
+    border: 1px solid var(--primary-color);
+  }
+  .explore-page-search {
+    position: relative;
+    display: block;
+    z-index: 999;
+  }
+
+  .explore-search-users-show {
+    width: 100%;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    position: absolute;
+    background-color: var(--bg-color);
+  }
+
+  .explore-search-users-show img {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    border-radius: 999px;
+    border: 2px solid var(--primary-color);
+  }
+
+  .explore-search-user-details {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .explore-search-user-details span:first-of-type {
+    font-weight: 600;
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .explore-search-user-details span:last-of-type {
+    font-size: 0.7rem;
+    margin: 0;
+  }
+}

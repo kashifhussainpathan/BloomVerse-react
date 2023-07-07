@@ -1,0 +1,163 @@
+.post-container {
+  width: 100%;
+  margin: auto;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+.post-container .user-post-details {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.post-container .user-avatar {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 999px;
+  border: 2px solid var(--primary-color);
+}
+
+.post-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.user-details-on-post {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.post-fullname a {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+.user-details-on-post span:first-of-type {
+  font-weight: 600;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.user-details-on-post span:last-of-type {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.created-date span {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.9rem;
+  display: inline-block;
+  margin-top: 0.3rem;
+}
+
+.follow-unfollow__button {
+  margin-top: 0.2rem;
+  margin-left: 1rem;
+  color: var(--primary-color);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.more-icon {
+  font-size: 1.5rem;
+  position: relative;
+}
+
+.edit-delete-buttons {
+  position: absolute;
+  top: 1.5rem;
+  left: -3.5rem;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  z-index: 99;
+  font-size: 1rem;
+}
+
+.edit-delete-buttons div {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.2rem;
+}
+
+.edit-delete-buttons div:hover {
+  cursor: pointer;
+}
+
+.follow-unfollow {
+  position: absolute;
+  top: 1.5rem;
+  left: -2.8rem;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  z-index: 99;
+  font-size: 1rem;
+}
+
+.follow-unfollow div:hover {
+  cursor: pointer;
+}
+
+.content {
+  width: 80%;
+  margin: 0.5rem auto;
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+}
+
+.post-container .post-image {
+  width: 100%;
+  margin: auto;
+}
+.post-container .post-image img {
+  display: block;
+  width: 80%;
+  max-height: 500px;
+  object-fit: cover;
+  margin: auto;
+  border-radius: 1rem;
+}
+
+.post-btns {
+  width: 80%;
+  margin: auto;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-btns svg {
+  font-size: 1.4rem;
+}
+
+.bold-icons {
+  stroke-width: 0.7rem;
+}
+
+.like-dislike-button {
+  display: flex;
+  gap: 0.2rem;
+  align-items: flex-start;
+}
+
+.like-dislike-button span:last-of-type {
+  font-size: 1rem;
+}
+
+/***************** Media queries for responsive *************************/
+
+@media screen and (max-width: 768px) {
+  .post-container .post-image img {
+    display: block;
+    width: 80%;
+    max-height: 250px;
+    object-fit: cover;
+    margin: auto;
+    border-radius: 1rem;
+  }
+}

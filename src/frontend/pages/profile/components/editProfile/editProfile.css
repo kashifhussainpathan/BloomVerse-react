@@ -1,0 +1,142 @@
+.edit-profile-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.edit-profile-section .edit-profile-wrapper {
+  background: var(--bg-color);
+  padding: 1rem;
+  border-radius: 8px;
+  width: 400px;
+}
+
+.cover-container {
+  position: relative;
+}
+
+.cover-container img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.add-cover-icon {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+
+.add-cover-icon input {
+  visibility: hidden;
+  display: none;
+}
+
+.add-cover-icon svg {
+  font-size: 1.3rem;
+  background-color: rgba(83, 83, 83, 0.423);
+  border-radius: 50%;
+  color: #fff;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+}
+
+.edit-profile__img img {
+  margin-top: -3.5rem;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+}
+
+.edit-profile__img {
+  position: relative;
+}
+
+.image-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.image-container img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary-color);
+}
+
+.add-profileImg-icon {
+  /* position: absolute;
+  bottom: 3rem;
+  right: 3.6rem; */
+  transform: translate(50%, 50%);
+  z-index: 999;
+}
+
+.avatar-options-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0.5rem 0;
+}
+
+.avatar-options img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.avatar-options img:hover {
+  scale: 1.1;
+}
+
+.add-profileImg-icon svg {
+  font-size: 1.3rem;
+  background-color: rgba(83, 83, 83, 0.423);
+  border-radius: 50%;
+  color: #fff;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: -2.5rem;
+  right: 2.1rem;
+}
+
+.add-profileImg-icon input {
+  visibility: hidden;
+  display: none;
+}
+
+.edit-profile__bio input,
+.edit-profile__url input {
+  width: 100%;
+  margin: 0.3rem auto;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--primary-color);
+  outline: none;
+}
+
+.edit-profile-btns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}

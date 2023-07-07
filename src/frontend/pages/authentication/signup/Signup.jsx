@@ -1,0 +1,129 @@
+import "./signupStyles.css";
+
+import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+
+// import { ProductsNav } from "../products/components/ProductsNav";
+import { AuthContext } from "src/frontend/context/auth-context";
+
+// Importing React Icons
+import { AiOutlineEyeInvisible } from "react-icons/ai";
+import { AiOutlineEye } from "react-icons/ai";
+export const Signup = () => {
+  const { signupHandler, signupInput, setSignupInput } =
+    useContext(AuthContext);
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const signupInputHandler = (e) => {
+    const { name, value } = e.target;
+    setSignupInput({ ...signupInput, [name]: value });
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  return (
+    <>
+      <section className="auth-container">
+        <div className="auth-wrapper">
+          <h2 className="auth-heading">Signup</h2>
+          <form onSubmit={signupHandler}>
+            <div className="auth-form-container">
+              <div className="input-text-group pb-1">
+                <label className="pb-05">
+                  Firstname<span className="color-text-error">*</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter your first name"
+                  name="firstName"
+                  value={signupInput.firstName}
+                  onChange={signupInputHandler}
+                  required
+                />
+              </div>
+              <div className="input-text-group">
+                <label className="">
+                  Lastname<span className="color-text-error">*</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter your email address"
+                  name="lastName"
+                  value={signupInput.lastName}
+                  onChange={signupInputHandler}
+                  required
+                />
+              </div>
+
+              <div className="input-text-group">
+                <label className="">
+                  Username<span className="color-text-error">*</span>
+                </label>
+                <input
+                  type="username"
+                  placeholder="Username"
+                  name="username"
+                  value={signupInput.username}
+                  onChange={signupInputHandler}
+                  required
+                />
+              </div>
+
+              <div className="input-text-group">
+                <label className="">
+                  Password<span className="color-text-error">*</span>{" "}
+                </label>
+                <div className="password-input-container">
+                  {" "}
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Enter your password"
+                    name="password"
+                    value={signupInput.password}
+                    onChange={signupInputHandler}
+                    required
+                  />
+                  {showPassword ? (
+                    <AiOutlineEyeInvisible
+                      className="password-toggle-icon"
+                      onClick={togglePasswordVisibility}
+                    />
+                  ) : (
+                    <AiOutlineEye
+                      className="password-toggle-icon"
+                      onClick={togglePasswordVisibility}
+                    />
+                  )}
+                </div>
+              </div>
+              <div className="input-text-group">
+                <label className="">
+                  Confirm password<span className="color-text-error">*</span>{" "}
+                </label>
+                <div className="password-input-container">
+                  <input
+                    type="password"
+                    placeholder="Confirm your password"
+                    name="cnfpassword"
+                    value={signupInput.cnfpassword}
+                    onChange={signupInputHandler}
+                    required
+                  />
+                </div>
+              </div>
+              <button className="create-new-account-btn button" type={"submit"}>
+                Create new account
+              </button>
+              <div className="create-new-account">
+                <Link to="/login">Already have an account ?</Link>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </>
+  );
+};

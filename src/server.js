@@ -87,6 +87,9 @@ export function makeServer({ environment = "development" } = {}) {
         "/users/unfollow/:followUserId/",
         unfollowUserHandler.bind(this)
       );
+
+      // Cloudinary Route
+      this.passthrough("https://api.cloudinary.com/v1_1/traderkp/image/upload");
     },
   });
 }

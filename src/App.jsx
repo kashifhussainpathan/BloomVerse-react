@@ -1,33 +1,65 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+import { useContext } from "react";
+import { useLocation } from "react-router-dom";
+
+import { Sidebar } from "./frontend/components/sidebar/Sidebar";
+import { RoutesComponent } from "./frontend/components/Routes";
+import { RightSidebar } from "./frontend/components/rightAside/RightSidebar";
+import { AuthContext } from "./frontend/context/auth-context";
+import { Login } from "./frontend/pages/authentication/login/Login";
+import { Signup } from "./frontend/pages/authentication/signup/Signup";
+import { PostContext } from "./frontend/context/post-context";
+import { CreatePostModal } from "./frontend/pages/home/components/createPost/CreatePostModal";
+
+if (import.meta.env.DEV) {
+  window.onerror = (event, source, lineno, colno, err) => {
+    const ErrorOverlay = customElements.get("vite-error-overlay");
+    if (!ErrorOverlay) {
+      return;
+    }
+    const overlay = new ErrorOverlay(err);
+    document.body.appendChild(overlay);
+  };
+}
 
 function App() {
-  const [count, setCount] = useState(0);
+  const { isCreatePostModalOpen } = useContext(PostContext);
+  const { userToken } = useContext(AuthContext);
+  const location = useLocation();
+
+  if (!userToken) {
+    if (location.pathname === "/signup") {
+      return <Signup />;
+    } else {
+      return <Login />;
+    }
+  }
 
   return (
     <>
-      <div>
-        <a>
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a>
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      {isCreatePostModalOpen && <CreatePostModal />}
+
+      <div className="Main-section">
+        {/* Sidebar */}
+        <section className="sidebar-section">
+          {" "}
+          <Sidebar />
+        </section>
+
+        {/* <hr className="vertical-hr" /> */}
+
+        {/* Routes */}
+        <section className="center-section">
+          <RoutesComponent />
+        </section>
+
+        {/* <hr className="vertical-hr" /> */}
+
+        {/* Right Side */}
+        <section className="right-section">
+          <RightSidebar />
+        </section>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   );
 }

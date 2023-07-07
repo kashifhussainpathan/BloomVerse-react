@@ -1,0 +1,32 @@
+.post-loader-section {
+  width: 93%;
+  margin: auto;
+  margin-top: 1rem;
+}
+
+.post-loader-user-details {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.post-loader-user-details .post--loader-user {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.post-loader-content-wrapper {
+  width: 90%;
+  margin-left: auto;
+  margin-top: 1rem;
+}
+
+.post-loader-btns {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  margin-left: auto;
+}

@@ -1,42 +1,194 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #008080;
+  --secondary-color: rgb(64, 64, 64);
+  /* --secondary-color: rgb(213, 213, 213); */
+  --body-margin: 8rem;
+  --bg-color: hsl(180, 30%, 98%);
+}
+
+body {
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background: var(--bg-color);
+  color: var(--secondary-color);
+  /* margin: 0 var(--body-margin); */
+}
+
+a,
+svg,
+button {
+  cursor: pointer;
+}
+
+button {
+  padding: 0.2rem 1rem;
+  height: 2rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+/* Default font-size for mobile */
+h1 {
+  font-size: 2rem;
+  line-height: 1.3;
+}
+h2 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.noPost {
   text-align: center;
+  margin-top: 1rem;
+  font-size: larger;
+  font-weight: 600;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+::-webkit-scrollbar {
+  display: none;
+  padding: 0;
+  width: 0;
+  margin: 0;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Styling Main Section */
+
+.Main-section {
+  margin-top: 2vh;
+  display: grid;
+  grid-template-areas: "left middle right";
+  grid-template-columns: 0.9fr 1.5fr 1.2fr;
+}
+
+.sidebar-section {
+  grid-area: left;
+}
+
+.center-section {
+  height: 98vh;
+  overflow: scroll;
+  overflow-x: hidden;
+  grid-area: middle;
+  border-left: 1px solid var(--primary-color);
+  border-right: 1px solid var(--primary-color);
+  border-width: thin;
+}
+
+.right-section {
+  grid-area: right;
+  display: block;
+}
+
+.vertical-hr {
+  border-left: 0px;
+  border-color: var(--primary-color);
+  opacity: 40%;
+}
+
+/***************** Media queries for responsive *************************/
+
+@media screen and (max-width: 768px) {
+  .sidebar-section {
+    grid-area: left;
   }
-  to {
-    transform: rotate(360deg);
+
+  .Main-section {
+    margin-top: 0;
+    display: grid;
+    justify-content: center;
+    grid-template-areas: "middle" "left";
+    grid-template-rows: 100%;
+    grid-template-columns: 1fr;
+  }
+
+  .right-section {
+    grid-area: right;
+    display: none;
+  }
+
+  .center-section {
+    height: 93vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    grid-area: middle;
+    border-left: 0px solid var(--primary-color);
+    border-right: 0px solid var(--primary-color);
+    border-width: thin;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media (min-width: 769px) and (max-width: 1024px) {
+  .Main-section {
+    margin: 0 1.5rem;
+    margin-top: 2vh;
+    display: grid;
+    justify-content: center;
+    grid-template-areas: "left middle";
+    grid-template-columns: 65px 1fr;
+  }
+
+  .right-section {
+    grid-area: right;
+    display: none;
   }
 }
 
-.card {
-  padding: 2em;
+@media (min-width: 1024px) and (max-width: 1250px) {
+  .Main-section {
+    margin-top: 2vh;
+    display: grid;
+    justify-content: center;
+    grid-template-areas: "left middle";
+    grid-template-columns: 0.1fr 0.7fr;
+  }
+
+  .right-section {
+    grid-area: right;
+    display: none;
+  }
 }
 
-.read-the-docs {
-  color: #888;
+/* Responsive typography using media queries */
+
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 1.75rem;
+  }
+  p {
+    font-size: 1.125rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1.25rem;
+  }
 }
