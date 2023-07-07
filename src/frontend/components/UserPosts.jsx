@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Fragment } from "react";
-import { Post } from "src/frontend/components/post/Post";
+import { Post } from "./post/Post";
+
 export const UserPosts = ({ userPosts, userProfile }) => {
   return (
     <>
