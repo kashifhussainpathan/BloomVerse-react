@@ -6,10 +6,11 @@ import { UserContext } from "src/frontend/context/user-context";
 import { UserPosts } from "src/frontend/components/userPosts";
 import { PostContext } from "src/frontend/context/post-context";
 import { EditPost } from "../home/components/editPost/EditPost";
+import { AuthContext } from "src/frontend/context/auth-context";
 import { EditProfile } from "src/frontend/pages/profile/components/editProfile/EditProfile";
 import { ProfileComponent } from "src/frontend/components/profileComponent/ProfileComponent";
+
 import { AiOutlineLogout } from "react-icons/ai";
-import { AuthContext } from "src/frontend/context/auth-context";
 
 export const Profile = () => {
   const { logoutHandler } = useContext(AuthContext);
@@ -38,7 +39,9 @@ export const Profile = () => {
     });
   };
 
-  const userPosts = posts.filter((post) => post?.username === user?.username);
+  const userPostsData = posts.filter(
+    (post) => post?.username === user?.username
+  );
 
   return (
     <>
@@ -65,7 +68,7 @@ export const Profile = () => {
       </div>
       <hr className="post-break-hr" />
       {/* LoggedInUsers Posts */}
-      <UserPosts userPosts={userPosts} />
+      <UserPosts userPosts={userPostsData} />
     </>
   );
 };
