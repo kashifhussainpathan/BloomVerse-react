@@ -30,14 +30,12 @@ export const AuthContextProvider = ({ children }) => {
     e.preventDefault();
     try {
       const { data } = await axios.post(`/api/auth/signup`, signupInput);
-      localStorage.setItem("token", JSON.stringify(data.encodedToken));
       localStorage.setItem("user", JSON.stringify(data.createdUser));
       setLoginInput({
         username: signupInput.username,
         password: signupInput.password,
       });
-      loginHandler();
-      navigate("/");
+      navigate("/login");
       setSignupInput({
         firstName: "",
         lastName: "",
