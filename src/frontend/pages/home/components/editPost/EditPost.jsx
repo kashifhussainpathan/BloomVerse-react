@@ -113,6 +113,7 @@ export const EditPost = () => {
           <img src={user.avatarUrl} alt="userAvatar" />
           <div className="edit-post__content">
             <textarea
+              placeholder="What is happening ?"
               value={updatedContent.content}
               onChange={(e) =>
                 setUpdatedContent({
