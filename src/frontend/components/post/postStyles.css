@@ -204,6 +204,6 @@
 
   .like-dislike-button span:last-of-type {
     font-size: 1rem;
-    padding-top: 2px;
+    padding-top: 4px;
   }
 }
