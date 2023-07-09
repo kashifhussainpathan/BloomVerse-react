@@ -132,7 +132,7 @@
   }
 
   .user-profile__createdDate {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   .user-profile-details-wrapper a {
@@ -144,6 +144,6 @@
   }
 
   .user-profile__following_followers div {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 }
