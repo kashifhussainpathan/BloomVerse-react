@@ -1,20 +1,41 @@
 .auth-container {
   display: flex;
-  gap: 1rem;
   align-items: center;
   justify-content: center;
   height: 100vh;
+}
+
+.auth-main-wrapper {
+  background-color: var(--secondary-color);
+  border-radius: 1rem;
+  padding: 0 3rem 3rem;
+}
+
+.auth-section {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
 }
 
 .auth-container__img img {
   width: 600px;
 }
 
+.auth-container__img p {
+  text-align: center;
+  color: var(--bg-color);
+  word-wrap: break-word;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
 .auth-wrapper {
-  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 2px 0px var(--bg-color);
   border-radius: 10px;
   padding: 0.5rem 1rem 1rem 1rem;
   width: 300px;
+  background-color: var(--secondary-color);
 }
 .auth-wrapper h2 {
   margin: 0 0 0.5rem 0;
@@ -36,6 +57,8 @@
   border-radius: 10px;
   border: 1px solid var(--primary-color);
   outline: none;
+  background-color: var(--secondary-color);
+  color: var(--bg-color);
 }
 
 .input-text-group input::placeholder {
@@ -50,6 +73,7 @@
 .input-text-group label {
   margin-bottom: 0.5rem;
   display: inline-block;
+  color: var(--bg-color);
 }
 .test-credentials-button {
   display: block;
@@ -57,6 +81,7 @@
   width: 100%;
   font-size: 0.9rem;
   text-transform: uppercase;
+  margin-top: 0.5rem;
 }
 .login-button {
   width: 100%;
@@ -75,6 +100,7 @@
   margin-top: 0.5rem;
   display: inline-block;
   width: 100%;
+  color: var(--primary-color);
 }
 
 .password-input-container {
@@ -106,5 +132,34 @@
   .auth-container__img img {
     width: 600px;
     display: none;
+  }
+
+  .auth-section {
+    background-color: transparent;
+    display: flex;
+    gap: 0;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 1rem;
+  }
+
+  .auth-header {
+    display: none;
+  }
+
+  .auth-main-wrapper {
+    background-color: transparent;
+    padding: 0;
+  }
+
+  .auth-container__img p {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .auth-container__img img {
+    width: 400px;
   }
 }

@@ -36,8 +36,8 @@
 }
 
 .user-profile-details-wrapper a {
+  color: mediumslateblue;
   text-decoration: none;
-  color: darkslateblue;
   font-size: 1.1rem;
 }
 
@@ -73,7 +73,7 @@
 }
 
 .user-profile__following_followers div {
-  color: rgba(0, 0, 0, 0.7);
+  color: var(--secondary-color);
   font-size: 1.1rem;
   cursor: pointer;
 }
@@ -125,5 +125,25 @@
 
   .logout-btn {
     display: block;
+  }
+
+  .user-profile__bio {
+    font-size: 1rem;
+  }
+
+  .user-profile__createdDate {
+    font-size: 0.9rem;
+  }
+
+  .user-profile-details-wrapper a {
+    font-size: 1rem;
+  }
+
+  .user-profile__following_followers svg {
+    font-size: 1rem;
+  }
+
+  .user-profile__following_followers div {
+    font-size: 0.9rem;
   }
 }

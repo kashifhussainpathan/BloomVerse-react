@@ -74,6 +74,10 @@
   display: none;
 }
 
+.theme-toggle-mobile {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .profile-header span {
     display: block;
@@ -83,5 +87,21 @@
     color: var(--primary-color);
     font-size: 1.3rem;
     margin-right: 1rem;
+  }
+
+  .theme-toggle-mobile {
+    display: block;
+  }
+  .theme-toggle-mobile span:last-of-type {
+    display: none;
+  }
+  .toggle-theme-and-logout {
+    display: flex;
+    gap: 0.1rem;
+    align-items: center;
+  }
+
+  .toggle-theme-and-logout div svg {
+    font-size: 1.4rem;
   }
 }

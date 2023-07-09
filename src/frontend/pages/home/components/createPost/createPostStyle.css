@@ -21,8 +21,7 @@
 }
 
 .create-post__textarea textarea::placeholder {
-  font-size: 1rem;
-  text-transform: uppercase;
+  font-size: 1.2rem;
 }
 
 .create-post__avatar img {
@@ -53,6 +52,9 @@
   top: 5px;
   right: 2.3rem;
   font-size: 1.2rem;
+  background-color: var(--secondary-color);
+  color: var(--bg-color);
+  border-radius: 50%;
 }
 
 .create-post__input {
@@ -102,7 +104,7 @@
 }
 
 .create-post-modal-wrapper {
-  background: var(--bg-color);
+  background: var(--modal-bg);
   border-radius: 8px;
   width: 500px;
   position: relative;
@@ -110,14 +112,20 @@
 
 .create-post-modal-cancel-btn {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 12px;
+  right: 12px;
   font-size: 1.3rem;
+  background-color: var(--secondary-color);
+  color: var(--bg-color);
+  border-radius: 50%;
 }
 
 @media screen and (max-width: 768px) {
   .emojipicker {
     position: absolute;
     left: -6rem;
+  }
+  .create-post__textarea textarea::placeholder {
+    font-size: 1rem;
   }
 }
