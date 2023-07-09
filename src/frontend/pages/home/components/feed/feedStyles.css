@@ -39,3 +39,9 @@
 .sortby-section .trending {
   border-right: 0;
 }
+
+@media screen and (max-width: 768px) {
+  .page-header {
+    margin: 1rem 1rem;
+  }
+}
