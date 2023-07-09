@@ -37,6 +37,7 @@ export const AuthContextProvider = ({ children }) => {
         password: signupInput.password,
       });
       loginHandler();
+      navigate("/");
       setSignupInput({
         firstName: "",
         lastName: "",
