@@ -1,6 +1,8 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+
+import toast from "react-hot-toast";
 
 export const AuthContext = createContext();
 
@@ -8,7 +10,7 @@ export const AuthContext = createContext();
 export const AuthContextProvider = ({ children }) => {
   const navigate = useNavigate();
   const userToken = localStorage.getItem("token");
-
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
   const [loginInput, setLoginInput] = useState({});
   const [signupInput, setSignupInput] = useState({
     avatarUrl:
@@ -18,6 +20,10 @@ export const AuthContextProvider = ({ children }) => {
     website: "https://github.com/kashifhussainpathan",
     bio: "Hey! I'm BloomVerse user",
   });
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   const signupHandler = async (e) => {
     e.preventDefault();
@@ -37,7 +43,6 @@ export const AuthContextProvider = ({ children }) => {
         password: "",
         cnfpassword: "",
       });
-      navigate("/");
     } catch (e) {
       console.log(e.response.data);
     }
@@ -47,11 +52,10 @@ export const AuthContextProvider = ({ children }) => {
     e.preventDefault();
     try {
       const { data } = await axios.post(`/api/auth/login`, loginInput);
+      navigate("/");
       localStorage.setItem("token", JSON.stringify(data.encodedToken));
       localStorage.setItem("user", JSON.stringify(data.foundUser));
-
       setLoginInput({ username: "", password: "" });
-      navigate("/");
     } catch (error) {
       console.log("Error", error);
     }
@@ -60,10 +64,27 @@ export const AuthContextProvider = ({ children }) => {
   const logoutHandler = async () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-    navigate("/");
+    navigate("/login");
+  };
+
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    if (theme === "light") {
+      toast("Hello Darkness!", {
+        icon: "👏",
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
+    }
   };
 
   const value = {
+    theme,
+    setTheme,
     userToken,
     loginInput,
     setLoginInput,
@@ -72,6 +93,7 @@ export const AuthContextProvider = ({ children }) => {
     signupHandler,
     loginHandler,
     logoutHandler,
+    toggleTheme,
   };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

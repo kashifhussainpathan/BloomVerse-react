@@ -11,9 +11,10 @@ import { EditProfile } from "src/frontend/pages/profile/components/editProfile/E
 import { ProfileComponent } from "src/frontend/components/profileComponent/ProfileComponent";
 
 import { AiOutlineLogout } from "react-icons/ai";
+import { MdOutlineDarkMode, MdOutlineWbSunny } from "react-icons/md";
 
 export const Profile = () => {
-  const { logoutHandler } = useContext(AuthContext);
+  const { logoutHandler, theme, toggleTheme } = useContext(AuthContext);
 
   const {
     userDispatch,
@@ -48,10 +49,38 @@ export const Profile = () => {
       {editMode && <EditPost />}
       <div className="profile-header">
         <h3 className="page-header">Profile</h3>{" "}
-        <span>
-          {" "}
-          <AiOutlineLogout onClick={logoutHandler} />
-        </span>
+        <div className="toggle-theme-and-logout">
+          {theme === "light" && (
+            <div
+              onClick={toggleTheme}
+              value="dark"
+              className="theme-toggle-mobile"
+            >
+              <span>
+                <MdOutlineDarkMode />{" "}
+              </span>
+              <span className="aside-nav-item-name">Dark Mode </span>
+            </div>
+          )}
+          {theme === "dark" && (
+            <div
+              onClick={toggleTheme}
+              value="dark"
+              className="theme-toggle-mobile"
+            >
+              <span>
+                {" "}
+                <MdOutlineWbSunny />{" "}
+              </span>
+              <span className="aside-nav-item-name">Light Mode </span>
+            </div>
+          )}
+
+          <span>
+            {" "}
+            <AiOutlineLogout onClick={logoutHandler} />
+          </span>
+        </div>
       </div>
 
       <hr className="post-break-hr" />
