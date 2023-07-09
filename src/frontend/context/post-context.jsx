@@ -2,6 +2,7 @@
 import { createContext, useEffect, useReducer, useState } from "react";
 import axios from "axios";
 import { PostReducer } from "../reducers/PostReducer";
+import { toast } from "react-hot-toast";
 
 export const PostContext = createContext();
 
@@ -41,6 +42,7 @@ export const PostProvider = ({ children }) => {
 
   const likeHandler = async (postId, token) => {
     try {
+      toast.success("Liked!");
       const { data } = await axios.post(
         `/api/posts/like/${postId}`,
         {},
@@ -57,6 +59,7 @@ export const PostProvider = ({ children }) => {
 
   const dislikeHandler = async (postId, token) => {
     try {
+      toast.success("Disliked!");
       const { data } = await axios.post(
         `/api/posts/dislike/${postId}`,
         {},

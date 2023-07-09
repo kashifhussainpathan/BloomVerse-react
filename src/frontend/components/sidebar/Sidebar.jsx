@@ -161,39 +161,6 @@ export const Sidebar = () => {
           )}
         </div>
       </aside>
-
-      {/* NavAside for bottom */}
-      <aside className="bottom-nav">
-        <div>
-          <NavLink to="/">
-            <AiOutlineHome className="home-bold-icon" />
-          </NavLink>
-        </div>
-        <div>
-          <NavLink to="/explore">
-            <MdOutlineExplore className="explore-icon" />
-          </NavLink>
-        </div>
-
-        {/* Add new post button */}
-        <div onClick={() => setIsCreatePostModalOpen(true)}>
-          {" "}
-          <AiOutlinePlusCircle className="home-bold-icon" />{" "}
-        </div>
-
-        <div>
-          <NavLink to="/bookmark">
-            {" "}
-            <HiOutlineBookmark />
-          </NavLink>
-        </div>
-
-        <div className="bottom-nav-avatar">
-          <NavLink to="profile">
-            <img src={user?.avatarUrl} alt={user?.username} />
-          </NavLink>
-        </div>
-      </aside>
     </>
   );
 };
