@@ -42,6 +42,10 @@
   text-decoration: none;
 }
 
+.post-fullname a:hover {
+  text-decoration: underline;
+}
+
 .user-details-on-post span:first-of-type {
   font-weight: 600;
   margin: 0;
