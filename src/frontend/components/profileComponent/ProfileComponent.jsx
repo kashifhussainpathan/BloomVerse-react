@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 import { useContext } from "react";
 import { UserContext } from "src/frontend/context/user-context";
