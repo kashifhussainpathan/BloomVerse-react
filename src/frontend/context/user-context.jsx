@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {
   createContext,
   useContext,
@@ -141,6 +142,10 @@ export const UserProvider = ({ children }) => {
     userDispatch({ type: "SET-USER", payload: loggedInUser });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userToken]);
+
+  useEffect(() => {
+    UserProfileHandler(userState?.userProfile?._id);
+  }, [users]);
 
   const value = {
     getUsers,
