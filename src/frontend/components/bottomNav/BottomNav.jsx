@@ -23,6 +23,7 @@ export const BottomNav = () => {
           <AiOutlineHome className="home-bold-icon" />
         </NavLink>
       </div>
+
       <div>
         <NavLink to="/explore">
           <MdOutlineExplore className="explore-icon" />
