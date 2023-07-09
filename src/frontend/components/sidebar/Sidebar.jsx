@@ -1,5 +1,5 @@
 import "./sidebarStyles.css";
-import { useContext, useState } from "react";
+import { useContext, useState, useRef, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 import { UserContext } from "src/frontend/context/user-context";
@@ -7,17 +7,23 @@ import { AuthContext } from "src/frontend/context/auth-context";
 import { PostContext } from "src/frontend/context/post-context";
 
 // Importing React Icons
+// import { CiLight } from "react-icons/ci";
 import { CgProfile } from "react-icons/cg";
-import { MdOutlineExplore } from "react-icons/md";
+import {
+  MdOutlineExplore,
+  MdOutlineDarkMode,
+  MdOutlineWbSunny,
+} from "react-icons/md";
 import { HiOutlineBookmark } from "react-icons/hi";
 import { AiOutlineHome, AiOutlinePlusCircle } from "react-icons/ai";
 
 export const Sidebar = () => {
   const [userBottomModal, setUserBottomModal] = useState(false);
+  const userBottomModalRef = useRef(null);
 
   const { setIsCreatePostModalOpen } = useContext(PostContext);
 
-  const { logoutHandler } = useContext(AuthContext);
+  const { logoutHandler, theme, toggleTheme } = useContext(AuthContext);
 
   const {
     userState: { user },
@@ -28,8 +34,25 @@ export const Sidebar = () => {
   };
 
   const showhideUserBottomModalHandler = () => {
-    userBottomModal ? setUserBottomModal(false) : setUserBottomModal(true);
+    setUserBottomModal(!userBottomModal);
   };
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (
+        userBottomModalRef.current &&
+        !userBottomModalRef.current.contains(event.target)
+      ) {
+        setUserBottomModal(false);
+      }
+    };
+
+    document.addEventListener("click", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  }, []);
 
   return (
     <>
@@ -52,19 +75,14 @@ export const Sidebar = () => {
                 <span className="aside-nav-item-name"> Home</span>
               </NavLink>
             </div>
+
             <div>
               <NavLink to="/explore" className={activeNavLink}>
                 <MdOutlineExplore className="explore-icon" />{" "}
                 <span className="aside-nav-item-name"> Explore</span>{" "}
               </NavLink>
             </div>
-            <div>
-              <NavLink to="/bookmark" className={activeNavLink}>
-                {" "}
-                <HiOutlineBookmark />
-                <span className="aside-nav-item-name">Bookmark </span>
-              </NavLink>
-            </div>
+
             <div>
               <NavLink to="profile" className={activeNavLink}>
                 {" "}
@@ -72,6 +90,33 @@ export const Sidebar = () => {
                 <span className="aside-nav-item-name">Profile </span>
               </NavLink>
             </div>
+
+            <div>
+              <NavLink to="/bookmark" className={activeNavLink}>
+                {" "}
+                <HiOutlineBookmark />
+                <span className="aside-nav-item-name">Bookmark </span>
+              </NavLink>
+            </div>
+
+            {/* theme modes */}
+            {theme === "light" && (
+              <div onClick={toggleTheme} value="dark" className="theme-toggle">
+                <span>
+                  <MdOutlineDarkMode />{" "}
+                </span>
+                <span className="aside-nav-item-name">Dark Mode </span>
+              </div>
+            )}
+            {theme === "dark" && (
+              <div onClick={toggleTheme} value="dark" className="theme-toggle">
+                <span>
+                  {" "}
+                  <MdOutlineWbSunny />{" "}
+                </span>
+                <span className="aside-nav-item-name">Light Mode </span>
+              </div>
+            )}
 
             {/* Add new post button */}
             <div
@@ -88,7 +133,11 @@ export const Sidebar = () => {
         </div>
 
         {/* Showing profile on the bottom of sidebar */}
-        <div className="user-bottom" onClick={showhideUserBottomModalHandler}>
+        <div
+          className="user-bottom"
+          ref={userBottomModalRef}
+          onClick={showhideUserBottomModalHandler}
+        >
           <img src={user?.avatarUrl} alt={user?.username} />
           <div className="user-details-bottom">
             <span className="aside-nav-item-name">
