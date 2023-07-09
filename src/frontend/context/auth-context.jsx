@@ -11,6 +11,7 @@ export const AuthContextProvider = ({ children }) => {
   const navigate = useNavigate();
   const userToken = localStorage.getItem("token");
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
+  const [isLoggedIn, setIsLoggedIn] = useState();
   const [loginInput, setLoginInput] = useState({});
   const [signupInput, setSignupInput] = useState({
     avatarUrl:
@@ -50,14 +51,30 @@ export const AuthContextProvider = ({ children }) => {
 
   const loginHandler = async (e) => {
     e.preventDefault();
+    const toastId = toast.loading("Logging in...");
     try {
+      setIsLoggedIn(true);
       const { data } = await axios.post(`/api/auth/login`, loginInput);
-      navigate("/");
-      localStorage.setItem("token", JSON.stringify(data.encodedToken));
       localStorage.setItem("user", JSON.stringify(data.foundUser));
+      setTimeout(() => {
+        localStorage.setItem("token", JSON.stringify(data.encodedToken));
+        navigate("/");
+      }, 1500);
+
       setLoginInput({ username: "", password: "" });
+      toast.update(toastId, {
+        type: "success",
+        render: "Logged in successfully",
+        isLoading: false,
+      });
+      setIsLoggedIn(false);
     } catch (error) {
       console.log("Error", error);
+      toast.update(toastId, {
+        type: "error",
+        render: "Login failed",
+        isLoading: false,
+      });
     }
   };
 
@@ -86,6 +103,7 @@ export const AuthContextProvider = ({ children }) => {
     theme,
     setTheme,
     userToken,
+    isLoggedIn,
     loginInput,
     setLoginInput,
     signupInput,
