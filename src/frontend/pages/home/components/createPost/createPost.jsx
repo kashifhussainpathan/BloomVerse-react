@@ -41,7 +41,7 @@ export const CreatePost = () => {
 
   const handleInput = (e) => {
     const { name, value } = e.target;
-    setCreatePost({ ...createPost, [name]: [value] });
+    setCreatePost({ ...createPost, [name]: value.toString() });
   };
 
   const handleImageInput = (e) => {
@@ -80,12 +80,13 @@ export const CreatePost = () => {
 
   const postButtonClickHandler = () => {
     setIsCreatePostModalOpen(false);
+    const trimmedContent = createPost?.content.trim();
     if (imageInput) {
       uploadPostImageFile();
-    } else if (createPost.content === "") {
+    } else if (trimmedContent === "") {
       toast.error("Write caption or add image.");
     } else {
-      createPostHandler(createPost, userToken);
+      createPostHandler({ ...createPost, content: trimmedContent }, userToken);
     }
   };
 
