@@ -145,7 +145,7 @@ export const UserProvider = ({ children }) => {
 
   useEffect(() => {
     UserProfileHandler(userState?.userProfile?._id);
-  }, [users]);
+  }, [userState?.user]);
 
   const value = {
     getUsers,
