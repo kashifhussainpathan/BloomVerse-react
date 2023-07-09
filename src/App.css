@@ -136,7 +136,7 @@ p {
   }
 
   .center-section {
-    height: calc(93vh - 7vh);
+    height: calc(93vh);
     overflow: scroll;
     overflow-x: hidden;
     grid-area: middle;
