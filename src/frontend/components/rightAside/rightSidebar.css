@@ -15,7 +15,8 @@
   padding: 0.5rem 1rem;
   padding-right: 2rem;
   outline: none;
-  border: 1px solid var(--primary-color);
+  border: 0;
+  box-shadow: 0px 0px 3px 0px var(--box-shadow-color);
   border-radius: 1rem;
   margin: 0.5rem 0;
   background-color: transparent;
@@ -35,6 +36,7 @@
 .search-users-show {
   width: 100%;
   box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
+  background-color: var(--modal-bg);
   border-radius: 0.5rem;
   padding: 1rem;
   margin-top: 0.5rem;
@@ -79,8 +81,7 @@
 }
 
 .follow-section {
-  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
-  /* border: 1px solid var(--primary-color); */
+  box-shadow: 0 0 2px 0 var(--box-shadow-color);
   border-radius: 0.5rem;
   padding: 1rem;
   min-width: 290px;
@@ -134,5 +135,7 @@
 
 .hr-below-users-suggestions {
   margin: 0.5rem 0;
-  border: 1px solid rgba(225, 224, 224, 0.9);
+  border-block-end: 0;
+  border-color: var(--box-shadow-color);
+  opacity: 0.7;
 }

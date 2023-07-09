@@ -14,7 +14,7 @@
 }
 
 .edit-profile-section .edit-profile-wrapper {
-  background: var(--bg-color);
+  background: var(--modal-bg);
   padding: 1rem;
   border-radius: 8px;
   width: 400px;
@@ -80,9 +80,6 @@
 }
 
 .add-profileImg-icon {
-  /* position: absolute;
-  bottom: 3rem;
-  right: 3.6rem; */
   transform: translate(50%, 50%);
   z-index: 999;
 }
@@ -133,6 +130,7 @@
   border-radius: 0.5rem;
   border: 1px solid var(--primary-color);
   outline: none;
+  background-color: var(--modal-bg);
 }
 
 .edit-profile-btns {

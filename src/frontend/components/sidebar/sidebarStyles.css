@@ -38,13 +38,13 @@
   margin-bottom: 1rem;
   padding: 0.5rem 0.5rem 0.5rem 0;
   text-decoration: none;
-  color: var(--primary-color);
+  color: var(--secondary-color);
 }
 .aside-nav-item-name {
   display: block;
 }
 .aside-nav .aside-nav-link svg {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 }
 .aside-nav .aside-nav-link:hover svg {
   scale: 1.1;
@@ -55,7 +55,7 @@
 }
 
 .aside-nav .aside-nav-link .profile-icon {
-  font-size: 1.7rem;
+  font-size: 1.6rem;
 }
 
 .aside-nav div .nav-link-active {
@@ -69,7 +69,7 @@
 .new-post {
   width: 70%;
   background-color: var(--primary-color);
-  color: var(--bg-color);
+  color: hsl(180, 30%, 98%);
   padding: 0.4rem 0;
   padding-top: 0.6rem;
   margin-top: 1.5rem;
@@ -82,6 +82,7 @@
   justify-content: center;
   gap: 0.4rem;
   cursor: pointer;
+  margin-left: 5px;
 }
 
 .new-post span svg {
@@ -130,7 +131,7 @@
   position: absolute;
   top: -4rem;
   right: 0;
-  background-color: #fff;
+  background-color: var(--modal-bg);
   border-radius: 0.5rem;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
   text-align: center;
@@ -154,6 +155,26 @@
   display: none;
 }
 
+/* Theme button style */
+.theme-toggle {
+  font-size: 1.3rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0.5rem 0.5rem 0;
+  text-decoration: none;
+  color: var(--secondary-color);
+  cursor: pointer;
+  margin-left: -1px;
+}
+
+.theme-toggle svg {
+  padding-top: 3px;
+  font-size: 1.8rem;
+}
+
 /***************** Media queries for responsive *************************/
 
 @media screen and (max-width: 768px) {
@@ -175,6 +196,7 @@
 
   .new-post {
     margin-top: 0;
+    margin-left: 0;
   }
 
   .bottom-nav {
@@ -195,7 +217,7 @@
 
   .bottom-nav div svg {
     font-size: 1.8rem;
-    color: var(--bg-color);
+    color: hsl(180, 30%, 98%);
   }
 
   .bottom-nav-avatar img {
@@ -203,6 +225,10 @@
     width: 35px;
     border-radius: 50%;
     object-fit: cover;
+  }
+
+  .theme-toggle {
+    display: none;
   }
 }
 
@@ -249,6 +275,11 @@
   .user-bottom-modal {
     top: -4rem;
     right: -3rem;
+  }
+
+  .theme-toggle {
+    padding: 0.5rem;
+    margin-left: -1px;
   }
 }
 

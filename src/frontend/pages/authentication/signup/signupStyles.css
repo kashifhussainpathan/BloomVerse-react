@@ -3,3 +3,14 @@
   text-transform: uppercase;
   margin-top: 0.5rem;
 }
+
+.auth-header {
+  padding-top: 1rem;
+  color: var(--bg-color);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.auth-header img {
+  width: 60px;
+}

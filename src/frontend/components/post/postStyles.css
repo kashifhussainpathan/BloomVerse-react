@@ -7,8 +7,15 @@
 .post-container .user-post-details {
   display: flex;
   align-items: flex-start;
+  gap: 1rem;
+}
+
+.user-post-details-img-name {
+  display: flex;
+  align-items: center;
   gap: 0.5rem;
 }
+
 .post-container .user-avatar {
   width: 50px;
   height: 50px;
@@ -25,6 +32,7 @@
 
 .user-details-on-post {
   display: flex;
+  gap: 2px;
   flex-direction: column;
   justify-content: space-between;
 }
@@ -46,10 +54,10 @@
 }
 
 .created-date span {
-  color: rgba(0, 0, 0, 0.6);
-  font-size: 0.9rem;
+  color: var(--secondary-color);
+  font-size: 0.8rem;
   display: inline-block;
-  margin-top: 0.3rem;
+  margin-top: 0.5rem;
 }
 
 .follow-unfollow__button {
@@ -70,7 +78,7 @@
   top: 1.5rem;
   left: -3.5rem;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
-  background-color: #fff;
+  background-color: var(--modal-bg);
   border-radius: 0.5rem;
   padding: 0.5rem;
   z-index: 99;
@@ -92,7 +100,7 @@
   top: 1.5rem;
   left: -2.8rem;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
-  background-color: #fff;
+  background-color: var(--modal-bg);
   border-radius: 0.5rem;
   padding: 0.5rem;
   z-index: 99;
@@ -103,9 +111,14 @@
   cursor: pointer;
 }
 
+.post-content-wrapper {
+  margin: 1rem 0;
+}
+
 .content {
   width: 80%;
   margin: 0.5rem auto;
+  margin-bottom: 0.8rem;
   font-size: 1.1rem;
   line-height: 1.5rem;
 }
@@ -117,7 +130,7 @@
 .post-container .post-image img {
   display: block;
   width: 80%;
-  max-height: 500px;
+  max-height: 400px;
   object-fit: cover;
   margin: auto;
   border-radius: 1rem;
@@ -159,5 +172,28 @@
     object-fit: cover;
     margin: auto;
     border-radius: 1rem;
+  }
+
+  .edit,
+  .delete {
+    display: none;
+  }
+
+  .edit-delete-buttons {
+    position: absolute;
+    top: 1.5rem;
+    left: -1rem;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
+    background-color: var(--modal-bg);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    z-index: 99;
+    font-size: 1.2rem;
+  }
+
+  .created-date span {
+    color: var(--secondary-color);
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
   }
 }

@@ -4,7 +4,7 @@
 }
 .post-break-hr {
   border-top: 0px;
-  border-color: var(--primary-color);
+  border-color: var(--secondary-color);
   opacity: 50%;
 }
 
@@ -26,15 +26,15 @@
 .sortby-section div {
   width: 50%;
   text-align: center;
-  border-bottom: 1px solid var(--primary-color);
+  border-bottom: 1px solid var(--secondary-color);
   padding: 0.5rem 0;
   font-weight: 500;
   cursor: pointer;
-  color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 .sortby-section .latest {
-  border-right: 1px solid var(--primary-color);
+  border-right: 1px solid var(--secondary-color);
 }
 .sortby-section .trending {
   border-right: 0;
