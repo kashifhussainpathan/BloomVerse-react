@@ -1,0 +1,34 @@
+.bottom-nav {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .bottom-nav {
+    height: 7vh;
+    width: 100vw;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    background-color: var(--primary-color);
+  }
+
+  .bottom-nav div a {
+    font-size: 1.8rem;
+    color: var(--bg-color);
+  }
+
+  .bottom-nav div svg {
+    font-size: 1.8rem;
+    color: hsl(180, 30%, 98%);
+  }
+
+  .bottom-nav-avatar img {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
