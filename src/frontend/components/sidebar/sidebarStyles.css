@@ -151,10 +151,6 @@
   margin: 0;
 }
 
-.bottom-nav {
-  display: none;
-}
-
 /* Theme button style */
 .theme-toggle {
   font-size: 1.3rem;
@@ -197,34 +193,6 @@
   .new-post {
     margin-top: 0;
     margin-left: 0;
-  }
-
-  .bottom-nav {
-    height: 7vh;
-    width: 100vw;
-    padding: 0 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: absolute;
-    background-color: var(--primary-color);
-  }
-
-  .bottom-nav div a {
-    font-size: 1.8rem;
-    color: var(--bg-color);
-  }
-
-  .bottom-nav div svg {
-    font-size: 1.8rem;
-    color: hsl(180, 30%, 98%);
-  }
-
-  .bottom-nav-avatar img {
-    height: 35px;
-    width: 35px;
-    border-radius: 50%;
-    object-fit: cover;
   }
 
   .theme-toggle {
