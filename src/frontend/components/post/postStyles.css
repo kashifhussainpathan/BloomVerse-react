@@ -164,6 +164,7 @@
 
 .like-dislike-button span:last-of-type {
   font-size: 1rem;
+  padding-top: 2px;
 }
 
 /***************** Media queries for responsive *************************/
@@ -199,5 +200,10 @@
     color: var(--secondary-color);
     font-size: 0.8rem;
     margin-top: 0.5rem;
+  }
+
+  .like-dislike-button span:last-of-type {
+    font-size: 1rem;
+    padding-top: 2px;
   }
 }
