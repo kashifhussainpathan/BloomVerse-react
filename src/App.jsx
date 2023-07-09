@@ -25,7 +25,7 @@ if (import.meta.env.DEV) {
 
 function App() {
   const { isCreatePostModalOpen } = useContext(PostContext);
-  const { userToken, theme } = useContext(AuthContext);
+  const { userToken, theme, isLoggedIn } = useContext(AuthContext);
   const location = useLocation();
 
   if (!userToken) {
@@ -43,17 +43,15 @@ function App() {
 
   return (
     <>
-      <Toaster
-        position="bottom-right"
-        reverseOrder={false}
-        containerStyle={{
-          bottom: "3rem",
-          right: "3rem",
-        }}
-        toastOptions={{
-          duration: 2000,
-        }}
-      />
+      {!isLoggedIn && (
+        <Toaster
+          position="top-center"
+          reverseOrder={false}
+          toastOptions={{
+            duration: 2000,
+          }}
+        />
+      )}
       {isCreatePostModalOpen && <CreatePostModal />}
 
       <div className="Main-section">
