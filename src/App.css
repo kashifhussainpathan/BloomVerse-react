@@ -10,7 +10,6 @@ html {
 
 :root {
   --primary-color: hsl(180, 100%, 25%);
-  /* --secondary-color: rgb(64, 64, 64); */
   --secondary-color: #333333;
   --box-shadow-color: rgba(0, 0, 0, 0.2);
   --bg-color: hsl(180, 30%, 98%);
@@ -137,7 +136,7 @@ p {
   }
 
   .center-section {
-    height: 93vh;
+    height: calc(93vh - 7vh);
     overflow: scroll;
     overflow-x: hidden;
     grid-area: middle;
