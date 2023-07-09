@@ -14,6 +14,9 @@ import { MdOutlineEmojiEmotions } from "react-icons/md";
 // Importing Emoji Picker
 import EmojiPicker from "emoji-picker-react";
 
+// Import hot toast
+import toast from "react-hot-toast";
+
 const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/traderkp/image/upload";
 const CLOUDINARY_UPLOAD_PRESET = "mypreset";
 
@@ -79,6 +82,8 @@ export const CreatePost = () => {
     setIsCreatePostModalOpen(false);
     if (imageInput) {
       uploadPostImageFile();
+    } else if (createPost.content === "") {
+      toast.error("Write caption or add image.");
     } else {
       createPostHandler(createPost, userToken);
     }
@@ -109,7 +114,7 @@ export const CreatePost = () => {
             <textarea
               type="text"
               name="content"
-              placeholder="Create a post.."
+              placeholder="What is happening?"
               onChange={handleInput}
               value={createPost.content}
             />
