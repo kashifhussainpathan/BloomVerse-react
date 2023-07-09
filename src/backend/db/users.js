@@ -48,7 +48,7 @@ export const users = [
     avatarUrl:
       "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554207/socialmedia/avatars/john-doe_gbkuda.webp",
     coverUrl:
-      "https://images.unsplash.com/photo-1503437313881-503a91226402?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80",
+      "https://images.unsplash.com/photo-1529254479751-faeedc59e78f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=327&q=80",
     website: "https://google.com/",
     createdAt: "2022-01-02T10:55:06+05:30",
     updatedAt: formatDate(),
@@ -79,7 +79,7 @@ export const users = [
     avatarUrl:
       "https://th.bing.com/th/id/R.017aaab086a22dbf5cd8afe71e56ea42?rik=crDFO1eeIP9DFw&riu=http%3a%2f%2flist.lisimg.com%2fimage%2f8567816%2f740.jpg&ehk=lTyGN8Xt6TqCYgror3Dq5MGx6EBAghDNjliYTkiUKis%3d&risl=&pid=ImgRaw&r=0",
     coverUrl:
-      "https://images.unsplash.com/photo-1553451166-232112bda6f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1172&q=80",
+      "https://images.unsplash.com/photo-1507183711269-1235bed98f14?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
     website: "https://google.com/",
     createdAt: "2022-01-03T10:55:06+05:30",
     updatedAt: formatDate(),
@@ -96,7 +96,7 @@ export const users = [
     avatarUrl:
       "https://res.cloudinary.com/dtrjdcrme/image/upload/v1652525373/socialmedia/avatars/alex-maxwell.webp",
     coverUrl:
-      "https://images.unsplash.com/photo-1599837487527-e009248aa71b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+      "https://images.unsplash.com/photo-1564410267841-915d8e4d71ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
     website: "https://google.com/",
     createdAt: "2022-01-05T10:55:06+05:30",
     updatedAt: formatDate(),
