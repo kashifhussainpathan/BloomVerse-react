@@ -11,6 +11,7 @@ import { Login } from "./frontend/pages/authentication/login/Login";
 import { Signup } from "./frontend/pages/authentication/signup/Signup";
 import { RightSidebar } from "./frontend/components/rightAside/RightSidebar";
 import { CreatePostModal } from "./frontend/pages/home/components/createPost/CreatePostModal";
+import { BottomNav } from "./frontend/components/bottomNav/BottomNav";
 
 if (import.meta.env.DEV) {
   window.onerror = (event, source, lineno, colno, err) => {
@@ -66,6 +67,7 @@ function App() {
         {/* Routes */}
         <section className="center-section">
           <RoutesComponent />
+          {userToken && <BottomNav />}
         </section>
 
         {/* <hr className="vertical-hr" /> */}
