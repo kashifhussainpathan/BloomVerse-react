@@ -46,8 +46,12 @@ function App() {
     <>
       {!isLoggedIn && (
         <Toaster
-          position="top-center"
+          position="bottom-right"
           reverseOrder={false}
+          containerStyle={{
+            bottom: "3rem",
+            right: "3rem",
+          }}
           toastOptions={{
             duration: 2000,
           }}
