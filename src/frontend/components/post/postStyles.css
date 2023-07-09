@@ -178,6 +178,21 @@
     margin: auto;
     border-radius: 1rem;
   }
+  .post-container .user-avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .user-details-on-post span:first-of-type {
+    font-weight: 600;
+    margin: 0;
+    font-size: 1.1rem;
+  }
+
+  .user-details-on-post span:last-of-type {
+    font-size: 0.8rem;
+    margin: 0;
+  }
 
   .content {
     font-size: 1rem;
@@ -203,7 +218,7 @@
   .created-date span {
     color: var(--secondary-color);
     font-size: 0.8rem;
-    margin-top: 0.5rem;
+    margin-top: 0.3rem;
   }
 
   .like-dislike-button span:last-of-type {
