@@ -40,7 +40,7 @@
 }
 
 .modal-container {
-  background: var(--bg-color);
+  background: var(--modal-bg);
   padding: 0 20px;
   border-radius: 8px;
   position: relative;
