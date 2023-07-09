@@ -62,15 +62,11 @@ function App() {
           <Sidebar />
         </section>
 
-        {/* <hr className="vertical-hr" /> */}
-
         {/* Routes */}
         <section className="center-section">
           <RoutesComponent />
           {userToken && <BottomNav />}
         </section>
-
-        {/* <hr className="vertical-hr" /> */}
 
         {/* Right Side */}
         <section className="right-section">
