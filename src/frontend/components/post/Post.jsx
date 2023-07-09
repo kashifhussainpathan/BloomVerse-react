@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import "./postStyles.css";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 import { AuthContext } from "src/frontend/context/auth-context";
@@ -8,9 +8,9 @@ import { PostContext } from "src/frontend/context/post-context";
 import { UserContext } from "src/frontend/context/user-context";
 
 // Importing React Icons
-import { BiBookmark, BiEdit } from "react-icons/bi";
 import { RiBookmarkFill } from "react-icons/ri";
 import { FiMoreHorizontal } from "react-icons/fi";
+import { BiBookmark, BiEdit, BiComment } from "react-icons/bi";
 import {
   AiOutlineLike,
   AiFillLike,
@@ -24,10 +24,12 @@ import { isPostLikedFunc } from "src/backend/utils/postUtils";
 import { getUserDetails } from "src/backend/utils/postUtils";
 import { formatDate } from "src/backend/utils/postUtils";
 import { getUserDetailsForExplore } from "src/backend/utils/postUtils";
+import { toast } from "react-hot-toast";
 
 export const Post = ({ post, explore, userProfile, bookmark }) => {
   const [activePost, setActivePost] = useState(false);
   const [showFollowUnfollow, setShowFollowUnfollow] = useState();
+  const modalRef = useRef(null);
 
   const { userToken } = useContext(AuthContext);
 
@@ -74,38 +76,56 @@ export const Post = ({ post, explore, userProfile, bookmark }) => {
       ? getUserDetailsForExplore(user, users, username)
       : getUserDetails(user, username);
 
+  // Close the modal when clicking outside
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        setActivePost(false);
+        setShowFollowUnfollow(false);
+      }
+    };
+
+    document.addEventListener("click", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  }, []);
+
   return (
     <div key={_id} className="post-container">
       <div className="post-header">
         <div className="user-post-details">
-          <img
-            src={userDetails?.avatarUrl}
-            alt="Avatar"
-            className="user-avatar"
-          />
-          <div className="user-details-on-post">
-            {/* For other users */}
-            {user?.username !== username && (
-              <span className="post-fullname">
-                <Link
-                  to="/userProfile"
-                  onClick={() => UserProfileHandler(userDetails?._id)}
-                >
-                  {userDetails?.firstName} {userDetails?.lastName}
-                </Link>
-              </span>
-            )}
+          <div className="user-post-details-img-name">
+            <img
+              src={userDetails?.avatarUrl}
+              alt="Avatar"
+              className="user-avatar"
+            />
+            <div className="user-details-on-post">
+              {/* For other users */}
+              {user?.username !== username && (
+                <span className="post-fullname">
+                  <Link
+                    to="/userProfile"
+                    onClick={() => UserProfileHandler(userDetails?._id)}
+                  >
+                    {userDetails?.firstName} {userDetails?.lastName}
+                  </Link>
+                </span>
+              )}
 
-            {/* For loggedIn user */}
-            {user?.username === username && (
-              <span className="post-fullname">
-                <Link to="/profile">
-                  {userDetails?.firstName} {userDetails?.lastName}
-                </Link>
-              </span>
-            )}
+              {/* For loggedIn user */}
+              {user?.username === username && (
+                <span className="post-fullname">
+                  <Link to="/profile">
+                    {userDetails?.firstName} {userDetails?.lastName}
+                  </Link>
+                </span>
+              )}
 
-            <span>@{username}</span>
+              <span>@{username}</span>
+            </div>
           </div>
 
           <div className="created-date">
@@ -134,6 +154,7 @@ export const Post = ({ post, explore, userProfile, bookmark }) => {
           )}
 
           <div
+            ref={modalRef}
             className="edit-delete-buttons"
             style={{ display: !activePost ? "none" : "" }}
           >
@@ -142,7 +163,7 @@ export const Post = ({ post, explore, userProfile, bookmark }) => {
                 <span>
                   <BiEdit />
                 </span>
-                <span>Edit </span>
+                <span className="edit">Edit </span>
               </div>
             )}
             {isCurrentUser && (
@@ -150,12 +171,13 @@ export const Post = ({ post, explore, userProfile, bookmark }) => {
                 <span>
                   <AiOutlineDelete />
                 </span>
-                <span> Delete</span>
+                <span className="delete"> Delete</span>
               </div>
             )}
           </div>
 
           <div
+            ref={modalRef}
             className="follow-unfollow"
             style={{ display: !showFollowUnfollow ? "none" : "" }}
           >
@@ -212,6 +234,9 @@ export const Post = ({ post, explore, userProfile, bookmark }) => {
             <span>{likes.likeCount} </span>
           </div>
         )}
+
+        {/* Comment button */}
+        <BiComment onClick={() => toast.error("Feature coming soon!")} />
 
         {/* Bookmark & Remove From Bookmark Button */}
         {bookmarks?.includes(_id) ? (
