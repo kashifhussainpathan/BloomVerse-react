@@ -99,7 +99,7 @@ export const posts = [
     },
     username: "johndoe",
     mediaUrl:
-      "https://i.pinimg.com/originals/bd/e3/ee/bde3ee9ccfa8dd5d5fb6a2a34394e507.jpg",
+      "https://cdn7.dissolve.com/p/D2012_156_011/D2012_156_011_1200.jpg",
     createdAt: "2023-02-26T16:13:08+05:30",
     updatedAt: formatDate(),
   },
