@@ -71,6 +71,7 @@ export const RightSidebar = () => {
                             <span>
                               {firstName} {lastName}
                             </span>
+
                             <span>@{username}</span>
                           </div>
                         </Link>
@@ -92,21 +93,27 @@ export const RightSidebar = () => {
               username !== user?.username ? (
                 <Fragment key={_id}>
                   <div className="follow-container">
-                    <div>
-                      {/* User-Profile-Avatar */}
+                    <Link
+                      to="/userProfile"
+                      onClick={() => UserProfileHandler(_id)}
+                    >
                       <div>
-                        <img src={avatarUrl} alt="user-avatar" />{" "}
+                        {/* User-Profile-Avatar */}
+
+                        <div>
+                          <img src={avatarUrl} alt="user-avatar" />{" "}
+                        </div>
+                        {/* User's- name and username */}
+                        <div className="user-name_username">
+                          <span className="user-name">
+                            {" "}
+                            {firstName} {""}
+                            {lastName}
+                          </span>
+                          <span className="user-username">@{username}</span>
+                        </div>
                       </div>
-                      {/* User's- name and username */}
-                      <div className="user-name_username">
-                        <span className="user-name">
-                          {" "}
-                          {firstName} {""}
-                          {lastName}
-                        </span>
-                        <span className="user-username">@{username}</span>
-                      </div>
-                    </div>
+                    </Link>
                     <div>
                       <button onClick={() => followHandler(_id, userToken)}>
                         Follow
