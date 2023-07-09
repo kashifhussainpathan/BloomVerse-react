@@ -12,6 +12,7 @@ import logo from "src/assets/logo.png";
 import { AiOutlineEyeInvisible } from "react-icons/ai";
 import { AiOutlineEye } from "react-icons/ai";
 import { AuthContext } from "src/frontend/context/auth-context";
+import { Toaster } from "react-hot-toast";
 
 export const Login = () => {
   const { loginInput, setLoginInput, loginHandler } = useContext(AuthContext);
@@ -35,6 +36,14 @@ export const Login = () => {
 
   return (
     <>
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        toastOptions={{
+          duration: 2000,
+        }}
+      />
+
       <section className="auth-container">
         <div className="auth-main-wrapper">
           <div className="auth-header">
