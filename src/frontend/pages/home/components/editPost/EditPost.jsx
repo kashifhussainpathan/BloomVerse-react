@@ -12,6 +12,7 @@ import { MdOutlineEmojiEmotions } from "react-icons/md";
 
 // Importing Emoji Picker
 import EmojiPicker from "emoji-picker-react";
+import { toast } from "react-hot-toast";
 
 const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/traderkp/image/upload";
 const CLOUDINARY_UPLOAD_PRESET = "mypreset";
@@ -40,8 +41,11 @@ export const EditPost = () => {
   const PostUpdateHandler = () => {
     if (choosedPostImage) {
       uploadPostImageUpdateFile();
+    } else if (updatedContent.content === "") {
+      toast.error("Write caption or add image.");
+    } else {
+      editPostHandler(editPostId, updatedContent, userToken);
     }
-    editPostHandler(editPostId, updatedContent, userToken);
   };
 
   const cancelEditHandler = () => {
