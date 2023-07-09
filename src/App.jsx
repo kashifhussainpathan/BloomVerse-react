@@ -1,14 +1,15 @@
 import "./App.css";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 import { Sidebar } from "./frontend/components/sidebar/Sidebar";
 import { RoutesComponent } from "./frontend/components/Routes";
-import { RightSidebar } from "./frontend/components/rightAside/RightSidebar";
 import { AuthContext } from "./frontend/context/auth-context";
+import { PostContext } from "./frontend/context/post-context";
 import { Login } from "./frontend/pages/authentication/login/Login";
 import { Signup } from "./frontend/pages/authentication/signup/Signup";
-import { PostContext } from "./frontend/context/post-context";
+import { RightSidebar } from "./frontend/components/rightAside/RightSidebar";
 import { CreatePostModal } from "./frontend/pages/home/components/createPost/CreatePostModal";
 
 if (import.meta.env.DEV) {
@@ -24,7 +25,7 @@ if (import.meta.env.DEV) {
 
 function App() {
   const { isCreatePostModalOpen } = useContext(PostContext);
-  const { userToken } = useContext(AuthContext);
+  const { userToken, theme } = useContext(AuthContext);
   const location = useLocation();
 
   if (!userToken) {
@@ -35,8 +36,24 @@ function App() {
     }
   }
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  useEffect(() => {
+    document.body.classList.toggle("dark-theme", theme === "dark");
+  }, [theme]);
+
   return (
     <>
+      <Toaster
+        position="bottom-right"
+        reverseOrder={false}
+        containerStyle={{
+          bottom: "3rem",
+          right: "3rem",
+        }}
+        toastOptions={{
+          duration: 2000,
+        }}
+      />
       {isCreatePostModalOpen && <CreatePostModal />}
 
       <div className="Main-section">
