@@ -76,6 +76,7 @@ export const PostProvider = ({ children }) => {
 
   const bookmarkHandler = async (postId, token) => {
     try {
+      toast.success("Bookmarked a post!");
       const { data } = await axios.post(
         `/api/users/bookmark/${postId}`,
         {},
@@ -103,6 +104,7 @@ export const PostProvider = ({ children }) => {
 
   const removeFromBookmarkHandler = async (postId, token) => {
     try {
+      toast.success("Removed from bookmark!");
       const { data } = await axios.post(
         `/api/users/remove-bookmark/${postId}`,
         {},
