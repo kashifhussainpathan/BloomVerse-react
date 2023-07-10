@@ -85,7 +85,7 @@ export const AuthContextProvider = ({ children }) => {
 
   const createAccountHandler = (e) => {
     e.preventDefault();
-    if (signupInput.password !== signupInput.confirmPassword) {
+    if (signupInput.password !== signupInput.cnfpassword) {
       toast.error("Passwords do not match");
     } else {
       signupHandler(e);
