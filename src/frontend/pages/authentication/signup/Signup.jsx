@@ -12,9 +12,10 @@ import { AuthContext } from "src/frontend/context/auth-context";
 // Importing React Icons
 import { AiOutlineEyeInvisible } from "react-icons/ai";
 import { AiOutlineEye } from "react-icons/ai";
+import { Toaster } from "react-hot-toast";
 
 export const Signup = () => {
-  const { signupHandler, signupInput, setSignupInput } =
+  const { createAccountHandler, signupInput, setSignupInput } =
     useContext(AuthContext);
 
   const [showPassword, setShowPassword] = useState(false);
@@ -30,6 +31,13 @@ export const Signup = () => {
 
   return (
     <>
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        toastOptions={{
+          duration: 2000,
+        }}
+      />
       <section className="auth-container">
         <div className="auth-main-wrapper">
           <div className="auth-header">
@@ -48,7 +56,7 @@ export const Signup = () => {
 
             <div className="auth-wrapper">
               <h2 className="auth-heading">Signup</h2>
-              <form onSubmit={signupHandler}>
+              <form onSubmit={createAccountHandler}>
                 <div className="auth-form-container">
                   <div className="input-text-group pb-1">
                     <label className="pb-05">

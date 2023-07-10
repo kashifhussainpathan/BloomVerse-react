@@ -83,6 +83,15 @@ export const AuthContextProvider = ({ children }) => {
     navigate("/login");
   };
 
+  const createAccountHandler = (e) => {
+    e.preventDefault();
+    if (signupInput.password !== signupInput.confirmPassword) {
+      toast.error("Passwords do not match");
+    } else {
+      signupHandler(e);
+    }
+  };
+
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
@@ -107,10 +116,10 @@ export const AuthContextProvider = ({ children }) => {
     setLoginInput,
     signupInput,
     setSignupInput,
-    signupHandler,
     loginHandler,
     logoutHandler,
     toggleTheme,
+    createAccountHandler,
   };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
