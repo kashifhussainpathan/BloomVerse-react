@@ -12,6 +12,7 @@ import { ProfileComponent } from "src/frontend/components/profileComponent/Profi
 
 import { AiOutlineLogout } from "react-icons/ai";
 import { MdOutlineDarkMode, MdOutlineWbSunny } from "react-icons/md";
+import { PostLoader } from "src/frontend/components/postLoader/PostLoader";
 
 export const Profile = () => {
   const { logoutHandler, theme, toggleTheme } = useContext(AuthContext);
@@ -24,6 +25,8 @@ export const Profile = () => {
   const {
     state: { posts },
     editMode,
+    isPosting,
+    isEditing,
   } = useContext(PostContext);
 
   const editProfileButtonHandler = (user) => {
@@ -97,7 +100,13 @@ export const Profile = () => {
       </div>
       <hr className="post-break-hr" />
       {/* LoggedInUsers Posts */}
-      <UserPosts userPosts={userPostsData} />
+      {!isPosting && !isEditing ? (
+        <UserPosts userPosts={userPostsData} />
+      ) : (
+        <section>
+          <PostLoader />
+        </section>
+      )}
     </>
   );
 };
