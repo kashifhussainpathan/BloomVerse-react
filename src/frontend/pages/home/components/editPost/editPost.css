@@ -111,3 +111,13 @@
   color: var(--bg-color);
   border-radius: 50%;
 }
+
+.edit-post__emojipicker {
+  position: absolute;
+}
+
+@media screen and (max-width: 768px) {
+  .edit-post__emojipicker {
+    left: -2rem;
+  }
+}

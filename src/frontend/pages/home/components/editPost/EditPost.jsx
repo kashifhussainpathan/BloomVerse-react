@@ -161,7 +161,7 @@ export const EditPost = () => {
                   }
                 />
                 <section
-                  className="emojipicker"
+                  className="edit-post__emojipicker"
                   style={{
                     display: !emojiSectionOpenedInEditing ? "none" : "",
                   }}
