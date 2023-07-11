@@ -80,7 +80,7 @@ export const Feed = () => {
               }
             })
           ) : (
-            <div className="noPost"> Make a post </div>
+            <div className="noPost"> Create a post </div>
           )}
         </section>
       ) : (
