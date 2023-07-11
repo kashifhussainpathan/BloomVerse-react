@@ -8,7 +8,9 @@ export const Home = () => {
 
       <hr className="post-break-hr" />
 
-      <CreatePost />
+      <div className="create-post">
+        <CreatePost />
+      </div>
 
       <div className="section-break" />
 
