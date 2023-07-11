@@ -31,4 +31,7 @@
     border-radius: 50%;
     object-fit: cover;
   }
+  .bottom-nav div .explore-icon {
+    font-size: 1.9rem;
+  }
 }
