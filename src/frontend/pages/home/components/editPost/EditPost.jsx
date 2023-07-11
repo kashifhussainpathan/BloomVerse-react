@@ -41,7 +41,10 @@ export const EditPost = () => {
   const PostUpdateHandler = () => {
     if (choosedPostImage) {
       uploadPostImageUpdateFile();
-    } else if (updatedContent.content === "") {
+    } else if (
+      updatedContent?.content === "" &&
+      updatedContent?.mediaUrl === ""
+    ) {
       toast.error("Write caption or add image.");
     } else {
       editPostHandler(editPostId, updatedContent, userToken);
