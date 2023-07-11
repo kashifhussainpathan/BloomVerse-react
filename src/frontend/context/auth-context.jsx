@@ -12,6 +12,7 @@ export const AuthContextProvider = ({ children }) => {
   const userToken = localStorage.getItem("token");
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
   const [isLoggedIn, setIsLoggedIn] = useState();
+
   const [loginInput, setLoginInput] = useState({});
   const [signupInput, setSignupInput] = useState({
     avatarUrl:
@@ -53,6 +54,7 @@ export const AuthContextProvider = ({ children }) => {
     const toastId = toast.loading("Logging in...");
     try {
       setIsLoggedIn(true);
+
       const { data } = await axios.post(`/api/auth/login`, loginInput);
       localStorage.setItem("user", JSON.stringify(data.foundUser));
       setTimeout(() => {
@@ -61,12 +63,10 @@ export const AuthContextProvider = ({ children }) => {
       }, 1500);
 
       setLoginInput({ username: "", password: "" });
-      toast.update(toastId, {
-        type: "success",
-        render: "Logged in successfully",
-        isLoading: false,
-      });
-      setIsLoggedIn(false);
+
+      setTimeout(() => {
+        setIsLoggedIn(false);
+      }, 3000);
     } catch (error) {
       console.log("Error", error);
       toast.update(toastId, {
