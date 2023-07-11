@@ -128,4 +128,8 @@
   .create-post__textarea textarea::placeholder {
     font-size: 1rem;
   }
+
+  .create-post-section {
+    display: none;
+  }
 }
