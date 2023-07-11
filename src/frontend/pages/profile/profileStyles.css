@@ -53,8 +53,11 @@
   right: 0.5rem;
 }
 .cross-button svg {
-  font-weight: 700;
-  font-size: 1.2rem;
+  font-weight: 500;
+  font-size: 1.1rem;
+  background-color: var(--secondary-color);
+  color: var(--bg-color);
+  border-radius: 50%;
 }
 
 .no-following {
