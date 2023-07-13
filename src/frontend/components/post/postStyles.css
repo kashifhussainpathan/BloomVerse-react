@@ -89,6 +89,10 @@
   font-size: 1rem;
 }
 
+.edit-delete-buttons div:first-of-type {
+  margin-bottom: 5px;
+}
+
 .edit-delete-buttons div {
   display: flex;
   align-items: flex-start;
@@ -210,9 +214,13 @@
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
     background-color: var(--modal-bg);
     border-radius: 0.5rem;
-    padding: 0.5rem;
+    padding: 0.4rem 0.5rem;
     z-index: 99;
     font-size: 1.2rem;
+  }
+
+  .edit-delete-buttons div:first-of-type {
+    margin-bottom: 5px;
   }
 
   .created-date span {
