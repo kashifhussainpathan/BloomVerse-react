@@ -16,7 +16,7 @@ export const UserPosts = ({ userPosts, userProfile }) => {
             );
           })
         ) : (
-          <div className="noPost"> Make a post </div>
+          <div className="noPost"> Create a post </div>
         )}
       </div>
     </>
