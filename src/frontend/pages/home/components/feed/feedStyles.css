@@ -30,17 +30,22 @@
   padding: 0.5rem 0;
   font-weight: 500;
   cursor: pointer;
-  color: var(--secondary-color);
+  color: var(--box-shadow-color);
+  box-shadow: 0px 0px 2px 0px var(--box-shadow-color);
+}
+
+.sortby-section div:first-of-type {
+  border-right: 1px solid var(--box-shadow-color);
 }
 
 .sortby-section .latest {
-  box-shadow: 0px 0px 2px 0px var(--box-shadow-color);
-  border-right: 1px solid var(--box-shadow-color);
+  color: var(--secondary-color);
 }
 .sortby-section .trending {
-  box-shadow: 0px 0px 2px 0px var(--box-shadow-color);
-  border-left: 1px solid var(--box-shadow-color);
+  color: var(--secondary-color);
 }
+
+/* ************* Media queries  ************** */
 
 @media screen and (max-width: 768px) {
   .page-header {
