@@ -12,7 +12,7 @@ export const Home = () => {
         <CreatePost />
       </div>
 
-      <div className="section-break" />
+      {/* <div className="section-break" /> */}
 
       <Feed />
     </>

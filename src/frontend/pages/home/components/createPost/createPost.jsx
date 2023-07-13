@@ -115,7 +115,7 @@ export const CreatePost = () => {
             <textarea
               type="text"
               name="content"
-              placeholder="What is happening?"
+              placeholder="What's happening?"
               onChange={handleInput}
               value={createPost.content}
             />
