@@ -41,19 +41,14 @@ export const Feed = () => {
       {/* Sort Section */}
       <div className="sortby-section">
         <div
-          className="latest"
-          style={{
-            fontWeight: sortBy === "latest" ? "700" : "500",
-          }}
+          className={sortBy === "latest" && "latest"}
           onClick={() => dispatch({ type: "SORT-BY", payload: "latest" })}
         >
           Latest
         </div>
+
         <div
-          className="trending"
-          style={{
-            fontWeight: sortBy === "trending" ? "700" : "500",
-          }}
+          className={sortBy === "trending" && "trending"}
           onClick={() => dispatch({ type: "SORT-BY", payload: "trending" })}
         >
           Trending
