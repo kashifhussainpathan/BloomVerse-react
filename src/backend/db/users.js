@@ -14,7 +14,8 @@ export const users = [
     password: "kashifpathan",
     bookmarks: [],
     bio: "Finding more of myself these days.",
-    avatarUrl: "https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg",
+    avatarUrl:
+      "https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?w=1060&t=st=1689406493~exp=1689407093~hmac=66cb654699ac21c45e2bd03bf7039f68b8fa3fd8e2f7bc48d2cb9d1b6b82b29d",
     coverUrl:
       "https://i.pinimg.com/originals/db/1b/cd/db1bcdcc64d0e7a4e148ce51744316f4.jpg",
     website: "https://bookish-kp.vercel.app/",
